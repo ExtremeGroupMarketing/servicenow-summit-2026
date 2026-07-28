@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assessment · Extreme Group</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"><style>
+:root{--bg:#0A0A0A;--bg2:#141414;--paper:#F3F3F3;--ink:#111111;--tx:#FFFFFF;--tx2:#C9D1D7;
+--slate:#90A0AD;--hair:rgba(255,255,255,.12);--hair2:rgba(255,255,255,.18);
+--dyn:#5b3687;--now:#30DE7B;--teal:#62d851;--blue:#1352B0;
+--c1:#2BC5D8;--c2:#62d851;--c3:#1352B0;--c4:#4E8FE8;--c5:#6E5BD8;
+--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+--disp:'Montserrat',Arial,system-ui,sans-serif;--body:'Inter',Helvetica,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--body);font-size:16px;line-height:1.5}
+h1,h2,h3,.disp{font-family:var(--disp);font-weight:800;letter-spacing:-.01em;line-height:1.12}
+.em-slate{color:var(--slate)}.em-teal{color:var(--teal)}
+.mono{font-family:var(--mono);font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;gap:.5em;font-family:var(--mono);font-weight:500;
+letter-spacing:.12em;text-transform:uppercase;font-size:.62rem;border:1px solid var(--hair2);
+border-radius:999px;padding:.42em 1em;color:var(--tx2);white-space:normal;line-height:1.6;max-width:100%;text-align:left;overflow-wrap:break-word}
+.pill.ok{border-color:var(--teal);color:var(--teal)}
+.pill.est{border-color:var(--slate);color:var(--slate)}
+.pill.pend{border-style:dashed;border-color:#8A8A8A;color:#9a9a9a}
+.card{background:var(--bg2);border:1px solid var(--hair);
+clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+.hairline{position:relative;height:1px;background:var(--hair2)}
+.hdr{display:flex;align-items:center;gap:16px;padding-top:28px}
+.hdr .hairline{flex:1}
+.xmark{display:block;flex:none}
+.lastro{font-family:var(--mono);font-weight:500;letter-spacing:.08em;font-size:.56rem;
+color:rgba(255,255,255,.4);text-transform:uppercase;line-height:1.7}
+.lastro b{color:rgba(255,255,255,.55);font-weight:500}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+::selection{background:var(--teal);color:#001b19}
+
+    body{min-height:100vh;display:flex;flex-direction:column}
+    .wrap{flex:1;max-width:880px;width:100%;margin:0 auto;padding:0 26px 20px;display:flex;flex-direction:column}
+    .screen{display:none;flex:1;flex-direction:column;justify-content:center;gap:22px;padding:24px 0}
+    .screen.on{display:flex}
+    .q{font-size:clamp(1.3rem,3.4vw,2rem);font-weight:800;font-family:var(--disp)}
+    .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .opt{background:var(--bg2);border:1px solid var(--hair2);padding:16px;cursor:pointer;text-align:left;
+    color:var(--tx);font-size:.9rem;line-height:1.5;font-family:var(--body);
+    clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);transition:border-color .2s,background .2s}
+    .opt:hover,.opt:focus-visible{border-color:var(--teal);outline:none}
+    .opt.sel{border-color:var(--teal);background:#0d1d1c}
+    .btn{align-self:flex-start;background:var(--teal);color:#00201d;font-family:var(--mono);font-size:.72rem;
+    letter-spacing:.15em;text-transform:uppercase;border:0;padding:1em 2em;border-radius:999px;cursor:pointer}
+    .btn[disabled]{opacity:.35;cursor:default}
+    .ghost{background:none;border:1px solid var(--hair2);color:var(--tx2)}
+    .prog{padding:14px 0 4px}
+    input[type=text],input[type=email]{background:var(--bg2);border:1px solid var(--hair2);color:var(--tx);
+    padding:12px 14px;font-size:.95rem;width:100%;font-family:var(--body)}
+    label.ck{display:flex;gap:10px;font-size:.78rem;color:var(--tx2);align-items:flex-start;line-height:1.5}
+    .rescard{border:1px solid var(--hair2);background:var(--bg2);padding:22px;
+    clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+    </style><style>body{background:#0A0A0A url("bg.jpg") center/cover no-repeat fixed !important}</style><style>@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Thin.ttf") format("truetype");font-weight:100;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-ThinItalic.ttf") format("truetype");font-weight:100;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-ExtraLight.ttf") format("truetype");font-weight:200;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-ExtraLightItalic.ttf") format("truetype");font-weight:200;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-SemiBoldItalic.ttf") format("truetype");font-weight:600;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-ExtraBoldItalic.ttf") format("truetype");font-weight:800;font-style:italic;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}@font-face{font-family:"Versos Test";src:url("fonts/VersosTest-BlackItalic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}:root{--disp:"Versos Test",Arial,system-ui,sans-serif !important;--body:"Versos Test",Arial,system-ui,sans-serif !important}</style><style>/*uppercase-titles*/h1,h2,h3,h4{text-transform:uppercase}</style><style>/*div-bg*/:root{--bg2:#141622 !important}</style><style>/*x-abs*/body{position:relative;overflow-x:hidden}</style><style>/*mono-versos*/:root{--mono:"Versos Test",ui-monospace,monospace !important}</style><style>/*grad*/
+.cta:not(.ghostl){background:linear-gradient(90deg,#62d851 0%,#2f7ae5 55%,#5b3687 100%) !important;color:#fff !important}
+.em-teal{background:linear-gradient(90deg,#62d851 0%,#2f7ae5 55%,#5b3687 100%);-webkit-background-clip:text;background-clip:text;color:transparent !important;-webkit-text-fill-color:transparent}
+button.cta{background:linear-gradient(90deg,#62d851 0%,#2f7ae5 55%,#5b3687 100%) !important;color:#fff !important}
+</style><style>/*round*/.card,.blk,.sheet,.lastro,.box,.q,div[style*="border:1px solid"],div[style*="background:var(--bg2)"]{border-radius:14px;overflow:hidden}</style><style>/*round-opt*/.opt{border-radius:14px}</style><style>/*grad-dark*/
+.cta:not(.ghostl),button.cta{background:linear-gradient(#141622,#141622) padding-box,linear-gradient(90deg,#62d851 0%,#2f7ae5 55%,#5b3687 100%) border-box !important;border:2px solid transparent !important;color:#fff !important}
+</style><style>/*round-4*/div[style*="border:1px dashed"],div[style*="border:1px"],td,th{border-radius:0}
+div[style*="border:1px dashed"],div[style*="border:1px solid"]{border-radius:14px}
+table{border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden}
+table td:first-child:last-child{border-radius:0}
+</style><style>/*btn-grad*/.btn{background:linear-gradient(#141622,#141622) padding-box,linear-gradient(90deg,#62d851 0%,#2f7ae5 55%,#5b3687 100%) border-box !important;border:2px solid transparent !important;color:#fff !important;border-radius:999px}</style></head><body>
+<div class="wrap">
+  <div class="hdr"><span class="mono" style="font-size:.6rem;color:var(--slate)">ASSESSMENT · 5 MINUTOS</span><div class="hairline"></div><img src="logos.png" alt="eDX by Extreme Group | Dynatrace" style="height:20px;width:auto"></div>
+  <div class="prog"><div style="position:relative;height:3px;background:var(--hair)">
+    <div id="pbar" style="position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--dyn),var(--teal));transition:width .4s"></div>
+    <div id="pnode" style="position:absolute;top:-4px;left:-6px;width:11px;height:11px;border-radius:50%;background:var(--teal);transition:left .4s"></div>
+  </div></div>
+
+  <div class="screen on" id="t0"><svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid slice"><g stroke="#FFFFFF" stroke-opacity=".07" stroke-width=".7"><line x1="-20" y1="90" x2="150" y2="20"/><line x1="150" y1="20" x2="270" y2="70"/><line x1="890" y1="540" x2="1010" y2="470"/><line x1="820" y1="560" x2="930" y2="500"/><line x1="30" y1="540" x2="130" y2="500"/><line x1="940" y1="60" x2="1020" y2="110"/></g><g fill="#FFFFFF" fill-opacity=".18"><circle cx="150" cy="20" r="2.4"/><circle cx="930" cy="500" r="2.4"/><circle cx="130" cy="500" r="2"/><circle cx="940" cy="60" r="2"/></g></svg>
+    <h1 class="q" style="font-size:clamp(1.7rem,4.5vw,2.6rem)">Escolha seu problema.<br><span class="em-teal">Nós desenhamos a travessia.</span></h1>
+    <div style="color:var(--tx2)">8 respostas · 5 minutos · seu melhor ponto de entrada ao final.</div>
+    <button class="btn" id="start">Começar</button></div>
+
+  <div class="screen" id="t1"><div class="q">Qual é a sua cadeira?</div>
+    <div class="opts"><button type="button" class="opt" data-v="a">CIO / Diretor de TI</button><button type="button" class="opt" data-v="b">Operações de TI / Service Management</button><button type="button" class="opt" data-v="c">Plataforma / Engenharia</button><button type="button" class="opt" data-v="d">CISO / Riscos</button><button type="button" class="opt" data-v="e">Digital / Experiência do Cliente</button><button type="button" class="opt" data-v="f">FinOps / Financeiro de TI</button></div></div>
+
+  <div class="screen" id="t2"><div class="q">Qual destas frases soa mais familiar hoje?</div>
+    <div class="opts"><button type="button" class="opt" data-v="0">“Minha IA custa mais do que deveria — e ninguém sabe exatamente onde.”</button><button type="button" class="opt" data-v="1">“Meus incidentes demoram para chegar ao time correto — e chegam sem contexto.”</button><button type="button" class="opt" data-v="2">“Não confio completamente na minha CMDB — e decido mesmo assim.”</button><button type="button" class="opt" data-v="3">“Descubro problemas de experiência pelo usuário — quando já virou reclamação.”</button><button type="button" class="opt" data-v="4">“Quantos agentes de IA operam na minha empresa agora? Eu não sei responder.”</button></div></div>
+
+  <div class="screen" id="t3"><div class="q">O que já está vivo no seu ServiceNow?</div>
+    <div style="color:var(--slate);font-size:.8rem">Toque em todos que se aplicam.</div>
+    <div class="opts"><button type="button" class="opt" data-v="itsm">ITSM em produção</button><button type="button" class="opt" data-v="em">Event Management (ITOM)</button><button type="button" class="opt" data-v="itomvd">ITOM Visibility ou Discovery</button><button type="button" class="opt" data-v="cmdb">CMDB usada em decisões</button><button type="button" class="opt" data-v="csm">CSM para clientes externos</button><button type="button" class="opt" data-v="nowassist">Now Assist / iniciativas de IA na plataforma</button><button type="button" class="opt" data-v="ns">Não sei responder</button></div>
+    <button class="btn" id="t3next">Continuar</button></div>
+
+  <div class="screen" id="t4"><div class="q">E observabilidade, como está?</div>
+    <div class="opts"><button type="button" class="opt" data-v="dt">Já usamos Dynatrace</button><button type="button" class="opt" data-v="outra">Usamos outra ferramenta de observabilidade</button><button type="button" class="opt" data-v="parcial">Cobertura parcial / pouca</button><button type="button" class="opt" data-v="ns">Não sei responder</button></div></div>
+
+  <div class="screen" id="t5"><div class="q">Cargas de IA (LLMs, agentes) na sua operação:</div>
+    <div class="opts"><button type="button" class="opt" data-v="prod">Em produção, com clientes ou processos críticos</button><button type="button" class="opt" data-v="piloto">Em pilotos</button><button type="button" class="opt" data-v="nao">Ainda não</button></div></div>
+
+  <div class="screen" id="t6"><div class="q">Vocês têm jornadas digitais críticas?</div>
+    <div class="opts"><button type="button" class="opt" data-v="ext">Sim, com clientes externos</button><button type="button" class="opt" data-v="int">Sim, internas</button><button type="button" class="opt" data-v="nao">Não é o nosso caso</button></div></div>
+
+  <div class="screen" id="t7"><div class="q">Quando algo quebra, como sua operação fica sabendo?</div>
+    <div class="opts"><button type="button" class="opt" data-v="crus">Alertas crus de várias ferramentas</button><button type="button" class="opt" data-v="semctx">Já chegam integrados ao ServiceNow, mas sem contexto</button><button type="button" class="opt" data-v="usuario">Usuário liga / abre chamado</button><button type="button" class="opt" data-v="maduro">Processo maduro, pouco ruído</button></div></div>
+
+  <div class="screen" id="t8"><div class="q">Se você pudesse resolver uma coisa nos próximos 90 dias:</div>
+    <div class="opts"><button type="button" class="opt" data-v="0">Controlar custo e risco de IA</button><button type="button" class="opt" data-v="1">Reduzir tempo de resposta a incidentes</button><button type="button" class="opt" data-v="2">Confiar na base de decisão (CMDB)</button><button type="button" class="opt" data-v="3">Proteger a experiência do cliente</button><button type="button" class="opt" data-v="4">Governar os agentes de IA</button></div></div>
+
+  <div class="screen" id="t9">
+    <div class="mono" style="font-size:.62rem;color:var(--teal)">SEU MELHOR PONTO DE ENTRADA É…</div>
+    <div class="rescard" id="r-win"></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <div class="rescard" style="flex:1;min-width:220px"><span class="mono" style="font-size:.58rem;color:var(--slate)">NÍVEL DE MATURIDADE</span><div id="r-mat" style="margin-top:4px;font-size:.9rem;color:var(--tx2)"></div></div>
+      <div class="rescard" style="flex:1;min-width:220px" id="r-evo"></div>
+    </div>
+    <div id="r-notas"></div>
+    <div style="font-size:.85rem;color:var(--tx2)"><b style="color:var(--tx)">Próximo passo:</b> workshop de descoberta com nosso time — referência de planejamento: próximos 7 dias, condicionada à agenda das equipes.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+      <input type="text" id="f-n" placeholder="Nome" autocomplete="off">
+      <input type="text" id="f-c" placeholder="Empresa" autocomplete="off">
+      <input type="email" id="f-e" placeholder="E-mail corporativo" autocomplete="off">
+    </div>
+    <label class="ck"><input type="checkbox" id="f-ok"> Aceito ser contatado sobre esta avaliação. Uso exclusivo para o agendamento do workshop e envio do material desta campanha (LGPD — finalidade única declarada; dados enviados com segurança diretamente à equipe Extreme).</label>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <button class="btn" id="lead">Quero o workshop</button>
+      <span id="f-msg" style="font-size:.78rem;color:var(--teal)"></span>
+    </div>
+    <figure style="display:flex;flex-direction:column;align-items:center;gap:8px;margin:0"><img src="edx-central.png" alt="eDX by Extreme Group" style="width:150px;height:auto"><figcaption class="mono" style="font-size:.55rem;color:var(--slate)">Leve a campanha com você</figcaption></figure>
+    <div class="lastro">As ofertas EDX são construídas sobre capacidades e integrações oficiais das plataformas, combinadas com arquitetura, configuração e serviços profissionais próprios.</div>
+  </div>
+</div>
+<script>
+(function(){
+var S={sc:[0,0,0,0,0],mat:0,gates:{itomvd:false,ia:true},answers:{},leads:[]};
+var seq=['t0','t1','t2','t3','t4','t5','t6','t7','t8','t9'];
+var idx=0;
+function el(id){return document.getElementById(id)}
+function show(i){idx=i;seq.forEach(function(s,j){el(s).classList.toggle('on',j===i)});
+ var pct=Math.min(i/9,1);var bar=el('pbar');if(bar){bar.style.width=(pct*100)+'%'}
+ var node=el('pnode');if(node){node.style.left='calc('+(pct*100)+'% - 6px)'}
+ window.scrollTo({top:0});}
+function single(container,cb){[].slice.call(container.querySelectorAll('.opt')).forEach(function(b){
+ b.addEventListener('click',function(){container.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel')});
+ b.classList.add('sel');cb(b);setTimeout(function(){show(idx+1)},260);});});}
+function multi(container){[].slice.call(container.querySelectorAll('.opt')).forEach(function(b){
+ b.addEventListener('click',function(){b.classList.toggle('sel')});});}
+
+// T2 dor -> +35
+single(el('t2'),function(b){S.answers.dor=b.dataset.v;S.sc[+b.dataset.v]+=35;});
+// T3 múltipla
+el('t3next').addEventListener('click',function(){
+ [].slice.call(el('t3').querySelectorAll('.opt.sel')).forEach(function(b){
+  var v=b.dataset.v;
+  if(v==='itsm'){S.sc[1]+=10}
+  if(v==='em'){S.sc[1]+=5;S.mat++}
+  if(v==='itomvd'){S.sc[2]+=15;S.mat++;S.gates.itomvd=true}
+  if(v==='cmdb'){S.sc[2]+=5;S.mat++}
+  if(v==='csm'){S.sc[3]+=10}
+  if(v==='nowassist'){S.sc[4]+=10;S.mat++}
+  if(v==='ns'){S.mat--}
+ });show(idx+1);});
+single(el('t4'),function(b){var v=b.dataset.v;S.answers.dt=v;
+ if(v==='dt'){for(var i=0;i<5;i++)S.sc[i]+=10;S.mat++}
+ if(v==='parcial'){S.sc[1]+=5}
+ if(v==='ns'){S.mat--}});
+single(el('t5'),function(b){var v=b.dataset.v;
+ if(v==='prod'){S.sc[0]+=15;S.sc[4]+=15;S.mat++}
+ if(v==='piloto'){S.sc[0]+=10;S.sc[4]+=5}
+ if(v==='nao'){S.gates.ia=false}});
+single(el('t6'),function(b){var v=b.dataset.v;
+ if(v==='ext'){S.sc[3]+=15} if(v==='int'){S.sc[3]+=8}});
+single(el('t7'),function(b){var v=b.dataset.v;
+ if(v==='crus'){S.sc[1]+=10} if(v==='semctx'){S.sc[1]+=8;S.sc[2]+=5}
+ if(v==='usuario'){S.sc[1]+=10;S.sc[3]+=5} if(v==='maduro'){S.mat++}});
+single(el('t8'),function(b){S.sc[+b.dataset.v]+=20;setTimeout(result,300)});
+single(el('t1'),function(b){S.answers.papel=b.textContent.trim()});
+el('start').addEventListener('click',function(){show(1)});
+multi(el('t3'));
+
+var NOMES=['AI Cost & Reliability','Incidente à Ação','CMDB Confiável','Experiência em Ação','Governança de Agentes de IA'];
+var STARTERS=['1 aplicação de IA · 4–6 semanas','1 serviço de negócio crítico · 3–5 semanas','1 domínio de aplicação · 5–7 semanas','1 jornada digital crítica · 4–6 semanas','Assessment + 1 agente piloto · 6–8 semanas'];
+var PROM=['Custo estimado e confiabilidade das cargas de IA, com ação no ServiceNow.','O incidente chega pronto: causa, contexto e dono — por app certificado.','Sua CMDB conectada à realidade observada, no domínio monitorado.','Jornadas críticas monitoradas; degradação vira ação roteada.','Agentes registrados e instrumentados com dono, custo estimado e trilha.'];
+var CORES=['#2BC5D8','#62d851','#1352B0','#4E8FE8','#6E5BD8'];
+var ORDEM=[1,3,2,0,4]; // desempate: conversão aprovada
+
+function result(){
+ var elig=[0,1,2,3,4].filter(function(i){
+   if((i===0||i===4)&&!S.gates.ia)return false;
+   if(i===2&&!S.gates.itomvd)return false;
+   return true;});
+ if(!elig.length)elig=[1];
+ function rank(a,b){if(S.sc[b]!==S.sc[a])return S.sc[b]-S.sc[a];
+   return ORDEM.indexOf(a)-ORDEM.indexOf(b);}
+ elig.sort(rank);
+ var win=elig[0];
+ var todos=[0,1,2,3,4].sort(rank);
+ var evo=todos.filter(function(i){return i!==win})[0];
+ var mat=S.mat<=1?'Fundacional':(S.mat<=3?'Operacional':'Avançado');
+ var matTxt={'Fundacional':'sua base pede um workshop de descoberta antes do desenho do Starter.',
+  'Operacional':'sua base sustenta um Starter direto, com ganhos visíveis no primeiro ciclo.',
+  'Avançado':'sessão de arquitetura direto no desenho do Starter.'}[mat];
+ var notas=[];
+ if(!S.gates.itomvd&&(S.answers.dor==='2'))notas.push('O caminho nativo de CMDB Confiável requer ITOM Visibility ou Discovery — a EDX desenha a rota de licenciamento na plataforma ServiceNow.');
+ if(win===2||win===4)notas.push('Itens de licenciamento desta oferta seguem em VALIDAÇÃO COMERCIAL EM CURSO.');
+ if(S.answers.dt==='outra')notas.push('Sua observabilidade atual entra no desenho — o workshop avalia convivência e rota de adoção.');
+ el('r-win').innerHTML='<span class="pill" style="border-color:'+CORES[win]+';color:'+CORES[win]+'">'+NOMES[win].toUpperCase()+
+   '</span><div style="font-size:1.15rem;font-weight:700;margin-top:10px">'+PROM[win]+
+   '</div><div class="mono" style="font-size:.6rem;color:var(--slate);margin-top:8px">STARTER · '+STARTERS[win].toUpperCase()+'</div>';
+ el('r-mat').innerHTML='<b>'+mat+'</b> — '+matTxt;
+ el('r-evo').innerHTML='<span class="mono" style="font-size:.58rem;color:var(--slate)">EVOLUÇÃO RECOMENDADA</span><div style="margin-top:4px">'+NOMES[evo]+'</div>';
+ el('r-notas').innerHTML=notas.map(function(n){return '<div style="font-size:.74rem;color:var(--slate);margin-top:6px">· '+n+'</div>'}).join('');
+ S.answers.win=NOMES[win];S.answers.mat=mat;
+ show(9);}
+
+// lead
+function store(){try{var k='eg_leads';var arr=JSON.parse(localStorage.getItem(k)||'[]');
+ arr.push(S.leads[S.leads.length-1]);localStorage.setItem(k,JSON.stringify(arr));return arr.length}
+ catch(e){return S.leads.length}}
+el('lead').addEventListener('click',function(){
+ var n=el('f-n').value.trim(),e=el('f-e').value.trim(),c=el('f-c').value.trim();
+ if(!n||!e||!el('f-ok').checked){el('f-msg').textContent='Preencha nome, e-mail corporativo e o consentimento.';return}
+ var leadObj={nome:n,email:e,empresa:c,papel:S.answers.papel||'',dor:String(S.answers.dor||''),recomendacao:S.answers.win,maturidade:S.answers.mat,consent:true,ts:new Date().toISOString()};
+ S.leads.push(leadObj);
+ var t=store();
+ fetch('https://servicenowsummuit2026.replit.app/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({nome:leadObj.nome,email:leadObj.email,empresa:leadObj.empresa,papel:leadObj.papel,dor:leadObj.dor,recomendacao:leadObj.recomendacao,maturidade:leadObj.maturidade,consent:true})})
+  .then(function(r){if(!r.ok)throw new Error('http '+r.status);
+   el('f-msg').textContent='Registrado. Nosso time confirma o workshop — obrigado!';})
+  .catch(function(){el('f-msg').textContent='Registrado neste dispositivo ('+t+' registros). Aviso: não foi possível enviar ao servidor agora.';});
+ el('lead').disabled=true;});
+
+
+show(0);
+})();
+</script><a href="index.html" style="position:fixed;top:16px;right:16px;z-index:9999;display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#62d851;background:rgba(10,10,10,.85);border:1px solid rgba(98,216,81,.5);border-radius:999px;padding:.7em 1.4em;text-decoration:none;backdrop-filter:blur(6px)">&#8592; In&iacute;cio</a><img src="x-3d.png" alt="" aria-hidden="true" style="position:absolute;bottom:0;right:-30px;width:min(340px,40vw);opacity:.5;pointer-events:none;z-index:0"></body></html>
